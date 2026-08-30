@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Kurdish POS",
+    "slug": "pos-rekar-mobile",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "scheme": "posrekar",
+    "plugins": ["expo-sqlite"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rekargroup.pos",
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      }
+    },
+    "android": {
+      "package": "com.rekargroup.pos",
+      "adaptiveIcon": {
+        "backgroundColor": "#2563eb",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": ["CAMERA"]
+    },
+    "extra": {
+      "eas": {
+        "projectId": "pos-rekar-mobile-local"
+      }
+    }
+  }
+}
