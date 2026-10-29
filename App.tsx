@@ -14,7 +14,9 @@ import { UserProvider } from './src/contexts/user-context';
 import LicenseScreen from './src/screens/LicenseScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import RootNavigator from './src/navigation/RootNavigator';
+import { FontProvider } from './src/providers/FontProvider';
 import { getCurrentUser } from './src/hooks';
+import { lightColors } from './src/theme/colors';
 
 installStoragePolyfill();
 
@@ -47,7 +49,7 @@ function AppInner() {
   if (booting) {
     return (
       <View className="flex-1 items-center justify-center bg-white dark:bg-gray-900">
-        <ActivityIndicator size="large" color="#2563eb" />
+        <ActivityIndicator size="large" color={lightColors.primary} />
       </View>
     );
   }
@@ -74,13 +76,15 @@ export default function App() {
       <SafeAreaProvider>
         <LanguageProvider>
           <DarkModeProvider>
-            <FontSizeProvider>
-              <UserProvider>
-                <CurrencyProvider>
-                  <AppInner />
-                </CurrencyProvider>
-              </UserProvider>
-            </FontSizeProvider>
+            <FontProvider>
+              <FontSizeProvider>
+                <UserProvider>
+                  <CurrencyProvider>
+                    <AppInner />
+                  </CurrencyProvider>
+                </UserProvider>
+              </FontSizeProvider>
+            </FontProvider>
           </DarkModeProvider>
         </LanguageProvider>
       </SafeAreaProvider>
